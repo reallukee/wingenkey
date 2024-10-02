@@ -1,0 +1,9 @@
+.banner {
+    opacity: 1.0;
+    background: #e5e5f7ff;
+    background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #e5e5f7ff 10px), repeating-linear-gradient(#0aa0faff, #0aa0faff);
+}
+
+.banner > * > * > * {
+    background: #00000099;
+}

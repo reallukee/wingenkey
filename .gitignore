@@ -1,0 +1,7 @@
+config.php
+
+desktop.ini
+*.DS_Store
+
+TEMP.md
+temp/
