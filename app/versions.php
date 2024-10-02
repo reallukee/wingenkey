@@ -70,7 +70,7 @@
 
     <h6 class="fs-6 mt-5">
       <span class="font-monospace">
-        <a href="./">WinGenKey</a>:
+        <a href="./home.php">WinGenKey</a>:
       </span>
     </h6>
 

@@ -323,7 +323,7 @@
                   </p>
                 </div>
 
-                <span class="badge text-bg-primary rounded-pill">
+                <span class="badge text-bg-primary rounded-pill ms-3">
                   <?= $row["type"]; ?>
                 </span>
               </div>

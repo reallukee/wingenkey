@@ -1,2 +1,5 @@
-ErrorDocument 404 /error.php
-ErrorDocument 500 /error.php
+ErrorDocument 401 /wingenkey/index.php
+ErrorDocument 403 /wingenkey/index.php
+
+ErrorDocument 404 /wingenkey/error.php
+ErrorDocument 500 /wingenkey/error.php
