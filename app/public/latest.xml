@@ -5,7 +5,7 @@
 - https://www.phpmyadmin.net
 -
 - Host: localhost:3306
-- Creato il: Ott 08, 2024 alle 09:11
+- Creato il: Ott 09, 2024 alle 16:10
 - Versione del server: 8.0.39-0ubuntu0.24.04.2
 - Versione PHP: 8.3.6
 -->
@@ -507,7 +507,8 @@
             <column name="version">win11</column>
             <column name="edition">chnSL</column>
             <column name="type">generic</column>
-            <column name="key">GH37Y-TNG7X-PP2TK-CMRMT-D3WV4</column>
+            <column name="key">68WP7-N2JMW-B676K-WR24Q-9D7YC
+</column>
             <column name="verified">0</column>
             <column name="verifiedOn">NULL</column>
             <column name="invalidated">0</column>
@@ -867,7 +868,8 @@
             <column name="version">win11</column>
             <column name="edition">proN</column>
             <column name="type">generic</column>
-            <column name="key">RHGJR-N7FVY-Q3B8F-KBQ6V-46YP4</column>
+            <column name="key">2KMWQ-NRH27-DV92J-J9GGT-TJF9R
+</column>
             <column name="verified">0</column>
             <column name="verifiedOn">NULL</column>
             <column name="invalidated">0</column>
