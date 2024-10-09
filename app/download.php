@@ -68,7 +68,7 @@
 
           <div class="my-5"></div>
 
-          <a href="./public/latest.csv" role="button" class="btn btn-lg btn-outline-secondary">
+          <a href="./public/latest.csv" role="button" class="btn btn-lg btn-outline-secondary" download>
             Download <i class="bi bi-download ms-1"></i>
           </a>
         </div>
@@ -76,7 +76,7 @@
         <div class="list-group list-group-flush">
           <?php foreach (glob("./public/*.csv") as $file): ?>
             <div class="list-group-item py-3">
-              <a href="./public/<?= $file; ?>" class="link-primary">
+              <a href="./public/<?= $file; ?>" class="link-primary" download>
                 <?= pathinfo($file, PATHINFO_FILENAME); ?>
               </a>
             </div>
@@ -108,7 +108,7 @@
 
           <div class="my-5"></div>
 
-          <a href="./public/latest.json" role="button" class="btn btn-lg btn-outline-secondary">
+          <a href="./public/latest.json" role="button" class="btn btn-lg btn-outline-secondary" download>
             Download <i class="bi bi-download ms-1"></i>
           </a>
         </div>
@@ -116,7 +116,7 @@
         <div class="list-group list-group-flush">
           <?php foreach (glob("./public/*.json") as $file): ?>
             <div class="list-group-item py-3">
-              <a href="./public/<?= $file; ?>" class="link-primary">
+              <a href="./public/<?= $file; ?>" class="link-primary" download>
                 <?= pathinfo($file, PATHINFO_FILENAME); ?>
               </a>
             </div>
@@ -148,7 +148,7 @@
 
           <div class="my-5"></div>
 
-          <a href="./public/latest.xml" role="button" class="btn btn-lg btn-outline-secondary">
+          <a href="./public/latest.xml" role="button" class="btn btn-lg btn-outline-secondary" download>
             Download <i class="bi bi-download ms-1"></i>
           </a>
         </div>
@@ -156,7 +156,7 @@
         <div class="list-group list-group-flush">
           <?php foreach (glob("./public/*.xml") as $file): ?>
             <div class="list-group-item py-3">
-              <a href="./public/<?= $file; ?>" class="link-primary">
+              <a href="./public/<?= $file; ?>" class="link-primary" download>
                 <?= pathinfo($file, PATHINFO_FILENAME); ?>
               </a>
             </div>
