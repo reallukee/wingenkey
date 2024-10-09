@@ -45,7 +45,7 @@
         </div>
       <?php endwhile; ?>
     <?php else: ?>
-      <div class="list-group-item list-group-item-info py-3">
+      <div class="list-group-item list-group-item-warning py-3">
         No Types!
       </div>
     <?php endif; ?>

@@ -1,13 +1,13 @@
 <?php
-  require_once __DIR__ . "/_controllers/types.php"; // Controller
+  require_once __DIR__ . "/_controllers/keys.php";  // Controller
 
-  $title = "Types";                                 // Page Title
-  $page = "TYPES";                                  // Page Id
+  $title = "Keys";                                  // Page Title
+  $page = "KEYS";                                   // Page Id
 
   $searchParam = $_GET["search"] ?? null;           // ?search
 
   $total = total($searchParam);
-  $types = types($searchParam);
+  $keys = keys($searchParam);
 ?>
 
 <!-- Header -->
@@ -29,13 +29,13 @@
 
     <h3 class="display-3 my-3">
       <span class="fw-bold">
-        Types
+        Keys
       </span>
     </h3>
 
     <h6 class="display-6 mb-5">
       <span>
-        <?= $total["total"]; ?> Types
+        <?= $total["total"]; ?> Keys
       </span>
     </h6>
 
@@ -50,7 +50,7 @@
   <!--
     BEGIN SEARCH
   -->
-  <form action="./<?= $file; ?>" method="get">
+  <form action="./keys.php" method="get">
 
     <div class="input-group input-group-lg">
       <input type="search" class="form-control form-control-lg" name="search" id="search" placeholder="Search..." />
@@ -68,11 +68,11 @@
   <div class="my-5"></div>
 
   <!--
-    BEGIN TYPES
+    BEGIN KEYS
   -->
-  <?php if ($types->num_rows > 0): ?>
-    <div class="row row-cols-1 row-cols-lg-3 gx-lg-5 gy-5">
-      <?php while ($row = $types->fetch_assoc()): ?>
+  <?php if ($keys->num_rows > 0): ?>
+    <div class="row row-cols-1 row-cols-lg-1 gx-lg-5 gy-5">
+      <?php while ($row = $keys->fetch_assoc()): ?>
         <div class="col">
           <div class="card">
             <div class="card-body">
@@ -86,18 +86,12 @@
               <div class="my-3"></div>
 
               <h4 class="fs-4 m-0 p-0">
-                <?= $row["friendlyName"]; ?>
+                <?= $row["key"]; ?>
               </h4>
-
-              <p class="m-0 p-0">
-                <code class="m-0 p-0">
-                  <?= $row["name"]; ?>
-                </code>
-              </p>
 
               <div class="my-5"></div>
 
-              <a href="./type.php?type=<?= $row["name"]; ?>" role="button" class="btn btn-outline-secondary">
+              <a href="./key.php?key=<?= $row["key"]; ?>" role="button" class="btn btn-outline-secondary">
                 View <i class="bi bi-arrow-right-circle-fill ms-1"></i>
               </a>
 
@@ -109,18 +103,18 @@
   <?php else: ?>
     <div class="alert alert-warning py-3" role="alert">
       <h4 class="fs-4 m-0 p-0">
-        No Types!
+        No Keys!
       </h4>
 
       <div class="my-3"></div>
 
-      <a href="./types.php" class="link-warning">
+      <a href="./keys.php" class="link-warning">
         Reset Parameters
       </a>
     </div>
   <?php endif; ?>
   <!--
-    END TYPES
+    END KEYS
   -->
 
 </div>

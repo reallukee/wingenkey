@@ -1,74 +1,19 @@
 <?php
-  require_once __DIR__ . "/_common/db.php";  // Database
+  require_once __DIR__ . "/_controllers/home.php";  // Controller
 
-  $title = "Home";                          // Page Title
-  $page = "HOME";                           // Page Id
+  $title = "Home";                                  // Page Title
+  $page = "HOME";                                   // Page Id
+
+  $keys = keys();
+  $versions = versions();
+  $editions = editions();
+  $types = types();
 ?>
 
-<?php include __DIR__ . "/_layouts/_header.php"; ?>  <!-- Header -->
-<?php include __DIR__ . "/_layouts/_navbar.php"; ?>  <!-- Navbar -->
-
-<?php
-  // Key Total
-  $sql =
-    "SELECT
-      COUNT(k.key) AS total
-    FROM
-      `key` k";
-
-  $stmt = $db->prepare($sql);
-  $stmt->execute();
-
-  $result = $stmt->get_result();
-  $keys = $result->fetch_assoc();
-
-  $stmt->close();
-
-  // Version Total
-  $sql =
-    "SELECT
-      COUNT(v.name) AS total
-    FROM
-      version v";
-
-  $stmt = $db->prepare($sql);
-  $stmt->execute();
-
-  $result = $stmt->get_result();
-  $versions = $result->fetch_assoc();
-
-  $stmt->close();
-
-  // Edition Total
-  $sql =
-    "SELECT
-      COUNT(e.name) AS total
-    FROM
-      edition e";
-
-  $stmt = $db->prepare($sql);
-  $stmt->execute();
-
-  $result = $stmt->get_result();
-  $editions = $result->fetch_assoc();
-
-  $stmt->close();
-
-  // Type Total
-  $sql =
-    "SELECT
-      COUNT(t.name) AS total
-    FROM
-      type t";
-
-  $stmt = $db->prepare($sql);
-  $stmt->execute();
-
-  $result = $stmt->get_result();
-  $types = $result->fetch_assoc();
-
-  $stmt->close();
-?>
+<!-- Header -->
+<?php include __DIR__ . "/_layouts/_header.php"; ?>
+<!-- Navbar -->
+<?php include __DIR__ . "/_layouts/_navbar.php"; ?>
 
 <!--
   BEGIN BANNER
@@ -104,7 +49,7 @@
   <div class="row gx-lg-5 gy-5">
 
     <!--
-      Search
+      BEGIN DATABASE
     -->
     <div class="col col-lg-12">
       <div class="card">
@@ -118,22 +63,55 @@
           <div class="my-3"></div>
 
           <h6 class="display-6 m-0 p-0">
-            Search
+            Database
           </h6>
 
           <div class="my-5"></div>
 
-          <a href="./search.php" role="button" class="btn btn-lg btn-outline-secondary">
+          <a href="./database.php" role="button" class="btn btn-lg btn-outline-secondary">
             View <i class="bi bi-arrow-right-circle-fill ms-1"></i>
           </a>
         </div>
       </div>
     </div>
+    <!--
+      END DATABASE
+    -->
 
     <!--
-      Versions
+      BEGIN KEYS
     -->
-    <div class="col col-lg-4">
+    <div class="col col-lg-6">
+      <div class="card">
+        <div class="card-body p-5">
+          <p class="m-0 p-0">
+            <span class="badge text-bg-primary">
+              <?= $keys["total"]; ?> Keys
+            </span>
+          </p>
+
+          <div class="my-3"></div>
+
+          <h6 class="display-6 m-0 p-0">
+            Keys
+          </h6>
+
+          <div class="my-5"></div>
+
+          <a href="./keys.php" role="button" class="btn btn-lg btn-outline-secondary">
+            View <i class="bi bi-arrow-right-circle-fill ms-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!--
+      END KEYS
+    -->
+
+    <!--
+      BEGIN VERSIONS
+    -->
+    <div class="col col-lg-6">
       <div class="card">
         <div class="card-body p-5">
           <p class="m-0 p-0">
@@ -156,11 +134,14 @@
         </div>
       </div>
     </div>
+    <!--
+      END VERSIONS
+    -->
 
     <!--
-      Editions
+      BEGIN EDITIONS
     -->
-    <div class="col col-lg-4">
+    <div class="col col-lg-6">
       <div class="card">
         <div class="card-body p-5">
           <p class="m-0 p-0">
@@ -183,11 +164,14 @@
         </div>
       </div>
     </div>
+    <!--
+      END EDITIONS
+    -->
 
     <!--
-      Types
+      BEGIN TYPES
     -->
-    <div class="col col-lg-4">
+    <div class="col col-lg-6">
       <div class="card">
         <div class="card-body p-5">
           <p class="m-0 p-0">
@@ -210,12 +194,14 @@
         </div>
       </div>
     </div>
+    <!--
+      END TYPES
+    -->
 
   </div>
 </div>
 
-<?php
-  $db->close();
-?>
+<?php $db->close(); ?>
 
-<?php include __DIR__ . "/_layouts/_footer.php"; ?>  <!-- Footer -->
+<!-- Footer -->
+<?php include __DIR__ . "/_layouts/_footer.php"; ?>

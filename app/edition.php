@@ -1,14 +1,14 @@
 <?php
-  require_once __DIR__ . "/_common/db.php";          // Database
+  require_once __DIR__ . "/_controllers/edition.php"; // Controller
 
-  $title = "Editions";                              // Page Title
-  $page = "EDITIONS";                               // Page Id
+  $title = "Editions";                                // Page Title
+  $page = "EDITIONS";                                 // Page Id
 
-  $verifiedParam = $_GET["verified"] ?? null;       // ?verified
-  $invalidatedParam = $_GET["invalidated"] ?? null; // ?invalidated
-  $editionParam = $_GET["edition"] ?? null;         // ?edition
-  $versionParam = $_GET["version"] ?? null;         // ?version
-  $typeParam = $_GET["type"] ?? null;               // ?type
+  $verifiedParam = $_GET["verified"] ?? null;         // ?verified
+  $invalidatedParam = $_GET["invalidated"] ?? null;   // ?invalidated
+  $editionParam = $_GET["edition"] ?? null;           // ?edition
+  $versionParam = $_GET["version"] ?? null;           // ?version
+  $typeParam = $_GET["type"] ?? null;                 // ?type
 
   // Default Verified
   if ($verifiedParam === "defaultVerified") {
@@ -45,190 +45,20 @@
   if ($typeParam === "defaultType") {
     $typeParam = null;
   }
+
+  $edition = edition($editionParam);
+  $keys = keys($verifiedParam, $invalidatedParam, $versionParam, $editionParam, $typeParam);
+  $verified = verified($editionParam);
+  $invalidated = invalidated($editionParam);
+  $versions = versions($editionParam);
+  $types = types($editionParam);
+  $total = total($editionParam);
 ?>
 
-<?php include __DIR__ . "/_layouts/_header.php"; ?>  <!-- Header -->
-<?php include __DIR__ . "/_layouts/_navbar.php"; ?>  <!-- Navbar -->
-
-<?php
-  // Edition
-  $sql =
-    "SELECT
-      e.*
-    FROM
-      edition e
-    WHERE
-      e.name=?";
-
-  $stmt = $db->prepare($sql);
-  $stmt->bind_param("s", $editionParam);
-  $stmt->execute();
-
-  $result = $stmt->get_result();
-  $edition = $result->fetch_assoc();
-
-  $stmt->close();
-
-  // Keys
-  $sql =
-    "SELECT
-      k.*,
-      e.friendlyName AS edition,
-      v.friendlyName AS version,
-      t.friendlyName AS type
-    FROM
-      `key` k
-    JOIN
-      edition e ON e.name=k.edition
-    JOIN
-      version v ON v.name=k.version
-    JOIN
-      type t ON t.name=k.type
-    WHERE
-      k.edition=?
-    AND
-      (
-        k.verified=?
-      OR
-        ? IS NULL
-      )
-    AND
-      (
-        k.invalidated=?
-      OR
-        ? IS NULL
-      )
-    AND
-      (
-        k.version=?
-      OR
-        ? IS NULL
-      )
-    AND
-      (
-        k.type=?
-      OR
-        ? IS NULL
-      )";
-
-  $stmt = $db->prepare($sql);
-  $stmt->bind_param("siiiissss", $editionParam, $verifiedParam, $verifiedParam, $invalidatedParam, $invalidatedParam, $versionParam, $versionParam, $typeParam, $typeParam);
-  $stmt->execute();
-
-  $keys = $stmt->get_result();
-
-  $stmt->close();
-
-  // Verified
-  $sql =
-    "SELECT DISTINCT
-      COUNT(k.verified) AS total,
-      SUM(CASE WHEN k.verified=0 THEN 1 ELSE 0 END) AS notVerified,
-      SUM(CASE WHEN k.verified=1 THEN 1 ELSE 0 END) AS verified
-    FROM
-      `key` k
-    WHERE
-      k.edition=?";
-
-  $stmt = $db->prepare($sql);
-  $stmt->bind_param("s", $editionParam);
-  $stmt->execute();
-
-  $result = $stmt->get_result();
-  $verified = $result->fetch_assoc();
-
-  $stmt->close();
-
-  // Invalidated
-  $sql =
-    "SELECT DISTINCT
-      COUNT(k.invalidated) AS total,
-      SUM(CASE WHEN k.invalidated=0 THEN 1 ELSE 0 END) AS notInvalidated,
-      SUM(CASE WHEN k.invalidated=1 THEN 1 ELSE 0 END) AS invalidated
-    FROM
-      `key` k
-    WHERE
-      k.edition=?";
-
-  $stmt = $db->prepare($sql);
-  $stmt->bind_param("s", $editionParam);
-  $stmt->execute();
-
-  $result = $stmt->get_result();
-  $invalidated = $result->fetch_assoc();
-
-  $stmt->close();
-
-  // Versions
-  $sql =
-    "SELECT DISTINCT
-      v.name,
-      v.friendlyName,
-      COUNT(k.version) AS total
-    FROM
-      `key` k
-    JOIN
-      version v ON v.name=k.version
-    WHERE
-      k.edition=?
-    GROUP BY
-      v.name,
-      v.friendlyName
-    ORDER BY
-      total DESC";
-
-  $stmt = $db->prepare($sql);
-  $stmt->bind_param("s", $editionParam);
-  $stmt->execute();
-
-  $versions = $stmt->get_result();
-
-  $stmt->close();
-
-  // Types
-  $sql =
-    "SELECT DISTINCT
-      t.name,
-      t.friendlyName,
-      COUNT(k.type) AS total
-    FROM
-      `key` k
-    JOIN
-      type t ON t.name=k.type
-    WHERE
-      k.edition=?
-    GROUP BY
-      t.name,
-      t.friendlyName
-    ORDER BY
-      total DESC";
-
-  $stmt = $db->prepare($sql);
-  $stmt->bind_param("s", $editionParam);
-  $stmt->execute();
-
-  $types = $stmt->get_result();
-
-  $stmt->close();
-
-  // Total
-  $sql =
-  "SELECT
-    COUNT(k.key) AS total
-  FROM
-    `key` k
-  WHERE
-    k.edition=?";
-
-  $stmt = $db->prepare($sql);
-  $stmt->bind_param("s", $editionParam);
-  $stmt->execute();
-
-  $result = $stmt->get_result();
-  $total = $result->fetch_assoc();
-
-  $stmt->close();
-?>
+<!-- Header -->
+<?php include __DIR__ . "/_layouts/_header.php"; ?>
+<!-- Navbar -->
+<?php include __DIR__ . "/_layouts/_navbar.php"; ?>
 
 <!--
   BEGIN BANNER
@@ -264,7 +94,7 @@
   <div class="row gx-lg-5 gy-5">
 
     <!--
-      BEGIN SIDEBAR
+      BEGIN CONTENT
     -->
     <div class="col-12 col-lg-8">
       <div class="card">
@@ -329,8 +159,16 @@
               </div>
             <?php endwhile; ?>
           <?php else: ?>
-            <div class="list-group-item list-group-item-info py-3">
-              No Keys!
+            <div class="list-group-item list-group-item-warning py-3">
+              <h4 class="fs-4 m-0 p-0">
+                No Keys!
+              </h4>
+
+              <div class="my-3"></div>
+
+              <a href="./editions.php" class="link-warning">
+                Go Back
+              </a>
             </div>
           <?php endif; ?>
         </div>
@@ -338,11 +176,11 @@
       </div>
     </div>
     <!--
-      END SIDEBAR
+      END CONTENT
     -->
 
     <!--
-      BEGIN CONTENT
+      BEGIN SIDEBAR
     -->
     <div class="col-12 col-lg-4">
       <form action="./edition.php" method="get">
@@ -382,8 +220,9 @@
       </form>
     </div>
     <!--
-      END CONTENT
+      END SIDEBAR
     -->
+
   </div>
 </div>
 
@@ -402,8 +241,7 @@
   }
 </script>
 
-<?php
-  $db->close();
-?>
+<?php $db->close(); ?>
 
-<?php include __DIR__ . "/_layouts/_footer.php"; ?>  <!-- Footer -->
+<!-- Footer -->
+<?php include __DIR__ . "/_layouts/_footer.php"; ?>

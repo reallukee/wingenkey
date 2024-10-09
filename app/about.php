@@ -1,12 +1,12 @@
 <?php
-  require_once __DIR__ . "/_common/db.php";  // Database
-
-  $title = "About";                         // Page Title
-  $page = "ABOUT";                          // Page Id
+  $title = "About"; // Page Title
+  $page = "ABOUT";  // Page Id
 ?>
 
-<?php include __DIR__ . "/_layouts/_header.php"; ?>  <!-- Header -->
-<?php include __DIR__ . "/_layouts/_navbar.php"; ?>  <!-- Navbar -->
+<!-- Header -->
+<?php include __DIR__ . "/_layouts/_header.php"; ?>
+<!-- Navbar -->
+<?php include __DIR__ . "/_layouts/_navbar.php"; ?>
 
 <!--
   BEGIN BANNER
@@ -28,7 +28,7 @@
 
     <h6 class="display-6 mb-5">
       <span>
-        About
+        WinGenKey
       </span>
     </h6>
 
@@ -38,8 +38,5 @@
   END BANNER
 -->
 
-<?php
-  $db->close();
-?>
-
-<?php include __DIR__ . "/_layouts/_footer.php"; ?>  <!-- Footer -->
+<!-- Footer -->
+<?php include __DIR__ . "/_layouts/_footer.php"; ?>

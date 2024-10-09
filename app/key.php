@@ -1,14 +1,15 @@
 <?php
-  require_once __DIR__ . "/_controllers/version.php"; // Controller
+  require_once __DIR__ . "/_controllers/key.php";   // Controller
 
-  $title = "Versions";                                // Page Title
-  $page = "VERSIONS";                                 // Page Id
+  $title = "Keys";                                  // Page Title
+  $page = "KEYS";                                   // Page Id
 
-  $verifiedParam = $_GET["verified"] ?? null;         // ?verified
-  $invalidatedParam = $_GET["invalidated"] ?? null;   // ?invalidated
-  $versionParam = $_GET["version"] ?? null;           // ?version
-  $editionParam = $_GET["edition"] ?? null;           // ?edition
-  $typeParam = $_GET["type"] ?? null;                 // ?type
+  $keyParam = $_GET["key"] ?? null;                 // ?key
+  $verifiedParam = $_GET["verified"] ?? null;       // ?verified
+  $invalidatedParam = $_GET["invalidated"] ?? null; // ?invalidated
+  $versionParam = $_GET["version"] ?? null;         // ?version
+  $editionParam = $_GET["edition"] ?? null;         // ?edition
+  $typeParam = $_GET["type"] ?? null;               // ?type
 
   // Default Verified
   if ($verifiedParam === "defaultVerified") {
@@ -36,6 +37,11 @@
     }
   }
 
+  // Default Version
+  if ($versionParam === "defaultVersion") {
+    $versionParam = null;
+  }
+
   // Default Edition
   if ($editionParam === "defaultEdition") {
     $editionParam = null;
@@ -46,13 +52,13 @@
     $typeParam = null;
   }
 
-  $version = version($versionParam);
-  $keys = keys($verifiedParam, $invalidatedParam, $versionParam, $editionParam, $typeParam);
-  $verified = verified($versionParam);
-  $invalidated = invalidated($versionParam);
-  $editions = editions($versionParam);
-  $types = types($versionParam);
-  $total = total($versionParam);
+  $total = total($keyParam, $verifiedParam, $invalidatedParam, $versionParam, $editionParam, $typeParam);
+  $keys = keys($keyParam, $verifiedParam, $invalidatedParam, $versionParam, $editionParam, $typeParam);
+  $verified = verified($keyParam);
+  $invalidated = invalidated($keyParam);
+  $versions = versions($keyParam);
+  $editions = editions($keyParam);
+  $types = types($keyParam);
 ?>
 
 <!-- Header -->
@@ -68,20 +74,20 @@
 
     <h6 class="fs-6 mt-5">
       <span class="font-monospace">
-        <a href="./versions.php">Version</a>:
+        <a href="./home.php">Home</a>:
       </span>
     </h6>
 
     <h3 class="display-3 my-3">
       <span class="fw-bold">
-        <?= $version["friendlyName"] ?? "Not Found"; ?>
+        <?= $keys->num_rows; ?> Keys
       </span>
     </h3>
 
     <h6 class="display-6 mb-5">
-      <span>
-        <?= $keys->num_rows; ?> Keys
-      </span>
+      <code>
+        <?= $keyParam === "" ? "Not Found" : $keyParam; ?>
+      </code>
     </h6>
 
   </div>
@@ -159,16 +165,8 @@
               </div>
             <?php endwhile; ?>
           <?php else: ?>
-            <div class="list-group-item list-group-item-warning py-3">
-              <h4 class="fs-4 m-0 p-0">
-                No Keys!
-              </h4>
-
-              <div class="my-3"></div>
-
-              <a href="./versions.php" class="link-warning">
-                Go Back
-              </a>
+            <div class="list-group-item list-group-item-info py-3">
+              No Keys!
             </div>
           <?php endif; ?>
         </div>
@@ -183,15 +181,17 @@
       BEGIN SIDEBAR
     -->
     <div class="col-12 col-lg-4">
-      <form action="./version.php" method="get">
-
-        <input type="hidden" name="version" id="version" value="<?= $version["name"]; ?>" />
+      <form action="./keys.php" method="get">
 
         <?php include __DIR__ . "/_template/verifiedFilter.php"; ?>
 
         <div class="my-5"></div>
 
         <?php include __DIR__ . "/_template/invalidatedFilter.php"; ?>
+
+        <div class="my-5"></div>
+
+        <?php include __DIR__ . "/_template/versionFilter.php"; ?>
 
         <div class="my-5"></div>
 
@@ -211,7 +211,7 @@
           </div>
 
           <div class="col">
-            <a href="./version.php?version=<?= $version["name"]; ?>" role="button" class="btn btn-lg btn-danger w-100">
+            <a href="./keys.php" role="button" class="btn btn-lg btn-danger w-100">
               Reset
             </a>
           </div>

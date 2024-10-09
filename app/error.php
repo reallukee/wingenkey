@@ -1,12 +1,12 @@
 <?php
-  require_once __DIR__ . "/_common/db.php";  // Database
-
-  $title = "Error";                         // Page Title
-  $page = "ERROR";                          // Page Id
+  $title = "Error"; // Page Title
+  $page = "ERROR";  // Page Id
 ?>
 
-<?php include __DIR__ . "/_layouts/_header.php"; ?>  <!-- Header -->
-<?php include __DIR__ . "/_layouts/_navbar.php"; ?>  <!-- Navbar -->
+<!-- Header -->
+<?php include __DIR__ . "/_layouts/_header.php"; ?>
+<!-- Navbar -->
+<?php include __DIR__ . "/_layouts/_navbar.php"; ?>
 
 <!--
   BEGIN BANNER
@@ -38,8 +38,5 @@
   END BANNER
 -->
 
-<?php
-  $db->close();
-?>
-
-<?php include __DIR__ . "/_layouts/_footer.php"; ?>  <!-- Footer -->
+<!-- Footer -->
+<?php include __DIR__ . "/_layouts/_footer.php"; ?>

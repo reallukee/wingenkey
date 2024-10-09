@@ -11,6 +11,18 @@
     <div class="collapse navbar-collapse mt-3 mt-lg-0" id="navbar">
       <ul class="navbar-nav">
         <li class="nav-item">
+          <a class="nav-link <?= $page === "DATABASE" ? "active" : ""; ?>" href="./database.php">
+            Database
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link <?= $page === "KEYS" ? "active" : ""; ?>" href="./keys.php">
+            Keys
+          </a>
+        </li>
+
+        <li class="nav-item">
           <a class="nav-link <?= $page === "VERSIONS" ? "active" : ""; ?>" href="./versions.php">
             Versions
           </a>
@@ -31,16 +43,16 @@
 
       <div class="mx-auto"></div>
 
-      <div class="d-flex mt-3 mt-lg-0">
-        <?php if ($page === "SEARCH"): ?>
-          <a href="./search.php" type="button" class="btn btn-primary">
-            Search
-          </a>
-        <?php else: ?>
-          <a href="./search.php" type="button" class="btn btn-outline-primary">
-            Search
-          </a>
-        <?php endif; ?>
+      <div class="d-lg-flex mt-3 mt-lg-0 mx-0 ms-lg-3">
+        <form action="./search.php" method="get">
+          <div class="input-group">
+            <input type="search" class="form-control" name="searchNavbar" id="searchNavbar" placeholder="Search..." />
+
+            <button type="submit" class="btn btn-primary">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

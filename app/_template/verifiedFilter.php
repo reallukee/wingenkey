@@ -63,7 +63,7 @@
         </span>
       </div>
     <?php else: ?>
-      <div class="list-group-item list-group-item-info py-3">
+      <div class="list-group-item list-group-item-warning py-3">
         No Verified!
       </div>
     <?php endif; ?>

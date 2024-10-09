@@ -1,0 +1,1387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 5.2.1deb3
+- https://www.phpmyadmin.net
+-
+- Host: localhost:3306
+- Creato il: Ott 08, 2024 alle 09:11
+- Versione del server: 8.0.39-0ubuntu0.24.04.2
+- Versione PHP: 8.3.6
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="wingenkey" collation="utf8mb4_general_ci" charset="utf8mb4">
+            <pma:table name="key">
+                CREATE TABLE `key` (
+                  `version` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT &#039;unknown&#039;,
+                  `edition` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT &#039;unknown&#039;,
+                  `type` char(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT &#039;unknown&#039;,
+                  `key` char(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+                  `verified` tinyint(1) NOT NULL DEFAULT &#039;0&#039;,
+                  `verifiedOn` datetime DEFAULT NULL,
+                  `invalidated` tinyint(1) NOT NULL DEFAULT &#039;0&#039;,
+                  `invalidatedOn` datetime DEFAULT NULL,
+                  PRIMARY KEY (`version`,`edition`,`type`,`key`),
+                  KEY `version` (`version`),
+                  KEY `edition` (`edition`),
+                  KEY `type` (`type`),
+                  CONSTRAINT `key_edition` FOREIGN KEY (`edition`) REFERENCES `edition` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
+                  CONSTRAINT `key_type` FOREIGN KEY (`type`) REFERENCES `type` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
+                  CONSTRAINT `key_version` FOREIGN KEY (`version`) REFERENCES `version` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'wingenkey'
+    -->
+    <database name="wingenkey">
+        <!-- Tabella key -->
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">chnSL</column>
+            <column name="type">generic</column>
+            <column name="key">68WP7-N2JMW-B676K-WR24Q-9D7YC</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">chnSL</column>
+            <column name="type">genericOEM</column>
+            <column name="key">7B6NC-V3438-TRQG7-8TCCX-H6DDY</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">education</column>
+            <column name="type">genericKMS</column>
+            <column name="key">NW6C2-QMPVW-D7KKK-3GKT6-VCFB2</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">education</column>
+            <column name="type">genericRTM</column>
+            <column name="key">YNMGQ-8RYV3-4PGQ3-C8XTP-7CFBY</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">educationN</column>
+            <column name="type">genericKMS</column>
+            <column name="key">2WH4N-8QGBV-H22JP-CT43Q-MDWWJ</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">educationN</column>
+            <column name="type">genericRTM</column>
+            <column name="key">84NGF-MHBT6-FXBX8-QWJK7-DRR8H</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">enterprise</column>
+            <column name="type">genericKMS</column>
+            <column name="key">NPPR9-FWDCX-D2C8J-H872K-2YT43</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">enterprise</column>
+            <column name="type">genericRTM</column>
+            <column name="key">XGVPP-NMH47-7TTHJ-W3FW7-8HV2C</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">enterpriseG</column>
+            <column name="type">genericKMS</column>
+            <column name="key">YYVX9-NTFWV-6MDM3-9PT4T-4M68B</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">enterpriseGN</column>
+            <column name="type">genericKMS</column>
+            <column name="key">44RPN-FTY23-9VTTB-MP9BX-T84FV</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">enterpriseLTSB2015</column>
+            <column name="type">genericKMS</column>
+            <column name="key">WNMTR-4C88C-JK8YV-HQ7T2-76DF9</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">enterpriseLTSB2016</column>
+            <column name="type">genericKMS</column>
+            <column name="key">DCPHK-NFMTC-H88MJ-PFHPY-QJ4BJ</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">enterpriseLTSC2019</column>
+            <column name="type">genericKMS</column>
+            <column name="key">M7XTQ-FN8P6-TTKYV-9D4CC-J462D</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">enterpriseLTSC2021</column>
+            <column name="type">genericKMS</column>
+            <column name="key">M7XTQ-FN8P6-TTKYV-9D4CC-J462D</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">enterpriseN</column>
+            <column name="type">genericKMS</column>
+            <column name="key">DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">enterpriseN</column>
+            <column name="type">genericRTM</column>
+            <column name="key">WGGHN-J84D6-QYCPR-T7PJ7-X766F</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">enterpriseNLTSB2015</column>
+            <column name="type">genericKMS</column>
+            <column name="key">2F77B-TNFGY-69QQF-B8YKP-D69TJ</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">enterpriseNLTSB2016</column>
+            <column name="type">genericKMS</column>
+            <column name="key">QFFDN-GRT3P-VKWWX-X7T3R-8B639</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">enterpriseNLTSC2019</column>
+            <column name="type">genericKMS</column>
+            <column name="key">92NFX-8DJQP-P6BBQ-THF9C-7CG2H</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">enterpriseNLTSC2021</column>
+            <column name="type">genericKMS</column>
+            <column name="key">92NFX-8DJQP-P6BBQ-THF9C-7CG2H</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">home</column>
+            <column name="type">generic</column>
+            <column name="key">46J3N-RY6B3-BJFDY-VBFT9-V22HG</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">home</column>
+            <column name="type">genericKMS</column>
+            <column name="key">TX9XD-98N7V-6WMQ6-BX7FG-H8Q99</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">home</column>
+            <column name="type">genericOEM</column>
+            <column name="key">37GNV-YCQVD-38XP9-T848R-FC2HD</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">home</column>
+            <column name="type">genericRTM</column>
+            <column name="key">YTMG3-N6DKC-DKB77-7M9GH-8HVX7</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">homeN</column>
+            <column name="type">generic</column>
+            <column name="key">PGGM7-N77TC-KVR98-D82KJ-DGPHV</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">homeN</column>
+            <column name="type">genericKMS</column>
+            <column name="key">3KHY7-WNT83-DGQKR-F7HPR-844BM</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">homeN</column>
+            <column name="type">genericOEM</column>
+            <column name="key">33CY4-NPKCC-V98JP-42G8W-VH636</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">homeN</column>
+            <column name="type">genericRTM</column>
+            <column name="key">4CPRK-NM3K3-X6XXQ-RXX86-WXCHW</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">pro</column>
+            <column name="type">generic</column>
+            <column name="key">RHGJR-N7FVY-Q3B8F-KBQ6V-46YP4</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">pro</column>
+            <column name="type">genericKMS</column>
+            <column name="key">W269N-WFGWX-YVC9B-4J6C9-T83GX</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">pro</column>
+            <column name="type">genericOEM</column>
+            <column name="key">NF6HC-QH89W-F8WYV-WWXV4-WFG6P</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">pro</column>
+            <column name="type">genericRTM</column>
+            <column name="key">VK7JG-NPHTM-C97JM-9MPGT-3V66T</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">proEducation</column>
+            <column name="type">genericKMS</column>
+            <column name="key">6TP4R-GNPTD-KYYHQ-7B7DP-J447Y</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">proEducation</column>
+            <column name="type">genericRTM</column>
+            <column name="key">8PTT6-RNW4C-6V7J2-C2D3X-MHBPB</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">proEducationN</column>
+            <column name="type">genericKMS</column>
+            <column name="key">YVWGF-BXNMC-HTQYQ-CPQ99-66QFC</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">proEducationN</column>
+            <column name="type">genericRTM</column>
+            <column name="key">GJTYN-HDMQY-FRR76-HVGC7-QPF8P</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">proForWorkstations</column>
+            <column name="type">genericKMS</column>
+            <column name="key">NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">proForWorkstations</column>
+            <column name="type">genericRTM</column>
+            <column name="key">DXG7C-N36C4-C4HTG-X4T3X-2YV77</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">proForWorkstationsN</column>
+            <column name="type">genericKMS</column>
+            <column name="key">9FNHH-K3HBT-3W4TD-6383H-6XYWF</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">proForWorkstationsN</column>
+            <column name="type">genericRTM</column>
+            <column name="key">WYPNQ-8C467-V2W6J-TX4WX-WT2RQ</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">proN</column>
+            <column name="type">generic</column>
+            <column name="key">2KMWQ-NRH27-DV92J-J9GGT-TJF9R</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">proN</column>
+            <column name="type">genericKMS</column>
+            <column name="key">MH37W-N47XK-V7XM9-C7227-GCQG9</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">proN</column>
+            <column name="type">genericOEM</column>
+            <column name="key">NH7W7-BMC3R-4W9XT-94B6D-TCQG3</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">proN</column>
+            <column name="type">genericRTM</column>
+            <column name="key">2B87N-8KFHP-DKV6R-Y2C8J-PKCKT</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">sl</column>
+            <column name="type">generic</column>
+            <column name="key">GH37Y-TNG7X-PP2TK-CMRMT-D3WV4</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win10</column>
+            <column name="edition">sl</column>
+            <column name="type">genericOEM</column>
+            <column name="key">NTRHT-XTHTG-GBWCG-4MTMP-HH64C</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">chnSL</column>
+            <column name="type">generic</column>
+            <column name="key">GH37Y-TNG7X-PP2TK-CMRMT-D3WV4</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">chnSL</column>
+            <column name="type">genericOEM</column>
+            <column name="key">7B6NC-V3438-TRQG7-8TCCX-H6DDY</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">education</column>
+            <column name="type">genericKMS</column>
+            <column name="key">NW6C2-QMPVW-D7KKK-3GKT6-VCFB2</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">education</column>
+            <column name="type">genericRTM</column>
+            <column name="key">YNMGQ-8RYV3-4PGQ3-C8XTP-7CFBY</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">educationN</column>
+            <column name="type">genericKMS</column>
+            <column name="key">2WH4N-8QGBV-H22JP-CT43Q-MDWWJ</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">educationN</column>
+            <column name="type">genericRTM</column>
+            <column name="key">84NGF-MHBT6-FXBX8-QWJK7-DRR8H</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">enterprise</column>
+            <column name="type">genericKMS</column>
+            <column name="key">NPPR9-FWDCX-D2C8J-H872K-2YT43</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">enterprise</column>
+            <column name="type">genericRTM</column>
+            <column name="key">XGVPP-NMH47-7TTHJ-W3FW7-8HV2C</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">enterpriseG</column>
+            <column name="type">genericKMS</column>
+            <column name="key">YYVX9-NTFWV-6MDM3-9PT4T-4M68B</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">enterpriseGN</column>
+            <column name="type">genericKMS</column>
+            <column name="key">44RPN-FTY23-9VTTB-MP9BX-T84FV</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">enterpriseLTSC2019</column>
+            <column name="type">genericKMS</column>
+            <column name="key">M7XTQ-FN8P6-TTKYV-9D4CC-J462D</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">enterpriseLTSC2024</column>
+            <column name="type">genericKMS</column>
+            <column name="key">M7XTQ-FN8P6-TTKYV-9D4CC-J462D</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">enterpriseN</column>
+            <column name="type">genericKMS</column>
+            <column name="key">DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">enterpriseN</column>
+            <column name="type">genericRTM</column>
+            <column name="key">WGGHN-J84D6-QYCPR-T7PJ7-X766F</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">enterpriseNLTSC2019</column>
+            <column name="type">genericKMS</column>
+            <column name="key">92NFX-8DJQP-P6BBQ-THF9C-7CG2H</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">enterpriseNLTSC2024</column>
+            <column name="type">genericKMS</column>
+            <column name="key">92NFX-8DJQP-P6BBQ-THF9C-7CG2H</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">home</column>
+            <column name="type">generic</column>
+            <column name="key">46J3N-RY6B3-BJFDY-VBFT9-V22HG</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">home</column>
+            <column name="type">genericKMS</column>
+            <column name="key">TX9XD-98N7V-6WMQ6-BX7FG-H8Q99</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">home</column>
+            <column name="type">genericOEM</column>
+            <column name="key">37GNV-YCQVD-38XP9-T848R-FC2HD</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">home</column>
+            <column name="type">genericRTM</column>
+            <column name="key">YTMG3-N6DKC-DKB77-7M9GH-8HVX7</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">homeN</column>
+            <column name="type">generic</column>
+            <column name="key">PGGM7-N77TC-KVR98-D82KJ-DGPHV</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">homeN</column>
+            <column name="type">genericKMS</column>
+            <column name="key">3KHY7-WNT83-DGQKR-F7HPR-844BM</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">homeN</column>
+            <column name="type">genericOEM</column>
+            <column name="key">33CY4-NPKCC-V98JP-42G8W-VH636</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">homeN</column>
+            <column name="type">genericRTM</column>
+            <column name="key">4CPRK-NM3K3-X6XXQ-RXX86-WXCHW</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">pro</column>
+            <column name="type">generic</column>
+            <column name="key">RHGJR-N7FVY-Q3B8F-KBQ6V-46YP4</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">pro</column>
+            <column name="type">genericKMS</column>
+            <column name="key">W269N-WFGWX-YVC9B-4J6C9-T83GX</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">pro</column>
+            <column name="type">genericOEM</column>
+            <column name="key">NF6HC-QH89W-F8WYV-WWXV4-WFG6P</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">pro</column>
+            <column name="type">genericRTM</column>
+            <column name="key">VK7JG-NPHTM-C97JM-9MPGT-3V66T</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">proEducation</column>
+            <column name="type">genericKMS</column>
+            <column name="key">6TP4R-GNPTD-KYYHQ-7B7DP-J447Y</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">proEducation</column>
+            <column name="type">genericRTM</column>
+            <column name="key">8PTT6-RNW4C-6V7J2-C2D3X-MHBPB</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">proEducationN</column>
+            <column name="type">genericKMS</column>
+            <column name="key">YVWGF-BXNMC-HTQYQ-CPQ99-66QFC</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">proEducationN</column>
+            <column name="type">genericRTM</column>
+            <column name="key">GJTYN-HDMQY-FRR76-HVGC7-QPF8P</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">proForWorkstations</column>
+            <column name="type">genericKMS</column>
+            <column name="key">NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">proForWorkstations</column>
+            <column name="type">genericRTM</column>
+            <column name="key">DXG7C-N36C4-C4HTG-X4T3X-2YV77</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">proForWorkstationsN</column>
+            <column name="type">genericKMS</column>
+            <column name="key">9FNHH-K3HBT-3W4TD-6383H-6XYWF</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">proForWorkstationsN</column>
+            <column name="type">genericRTM</column>
+            <column name="key">WYPNQ-8C467-V2W6J-TX4WX-WT2RQ</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">proN</column>
+            <column name="type">generic</column>
+            <column name="key">RHGJR-N7FVY-Q3B8F-KBQ6V-46YP4</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">proN</column>
+            <column name="type">genericKMS</column>
+            <column name="key">MH37W-N47XK-V7XM9-C7227-GCQG9</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">proN</column>
+            <column name="type">genericOEM</column>
+            <column name="key">NH7W7-BMC3R-4W9XT-94B6D-TCQG3</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">proN</column>
+            <column name="type">genericRTM</column>
+            <column name="key">2B87N-8KFHP-DKV6R-Y2C8J-PKCKT</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">sl</column>
+            <column name="type">generic</column>
+            <column name="key">GH37Y-TNG7X-PP2TK-CMRMT-D3WV4</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win11</column>
+            <column name="edition">sl</column>
+            <column name="type">genericOEM</column>
+            <column name="key">NTRHT-XTHTG-GBWCG-4MTMP-HH64C</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win7</column>
+            <column name="edition">enterprise</column>
+            <column name="type">generic</column>
+            <column name="key">H7X92-3VPBB-Q799D-Y6JJ3-86WC6</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win7</column>
+            <column name="edition">enterprise</column>
+            <column name="type">genericKMS</column>
+            <column name="key">33PXH-7Y6KF-2VJC9-XBBR8-HVTHH</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win7</column>
+            <column name="edition">enterpriseE</column>
+            <column name="type">generic</column>
+            <column name="key">H3V6Q-JKQJG-GKVK3-FDDRF-TCKVR</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win7</column>
+            <column name="edition">enterpriseE</column>
+            <column name="type">genericKMS</column>
+            <column name="key">C29WB-22CC8-VJ326-GHFJW-H9DH4</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win7</column>
+            <column name="edition">enterpriseN</column>
+            <column name="type">generic</column>
+            <column name="key">BQ4TH-BWRRY-424Y9-7PQX2-B4WBD</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win7</column>
+            <column name="edition">enterpriseN</column>
+            <column name="type">genericKMS</column>
+            <column name="key">YDRBP-3D83W-TY26F-D46B2-XCKRJ</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win7</column>
+            <column name="edition">homeBasic</column>
+            <column name="type">generic</column>
+            <column name="key">YGFVB-QTFXQ-3H233-PTWTJ-YRYRV</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win7</column>
+            <column name="edition">homeBasicE</column>
+            <column name="type">generic</column>
+            <column name="key">VTKM9-74GQY-K3W94-47DHV-FTXJY</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win7</column>
+            <column name="edition">homeBasicN</column>
+            <column name="type">generic</column>
+            <column name="key">MD83G-H98CG-DXPYQ-Q8GCR-HM8X2</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win7</column>
+            <column name="edition">homePremium</column>
+            <column name="type">generic</column>
+            <column name="key">RHPQ2-RMFJH-74XYM-BH4JX-XM76F</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win7</column>
+            <column name="edition">homePremiumE</column>
+            <column name="type">generic</column>
+            <column name="key">76BRM-9Q4K3-QDJ48-FH4F3-9WT2R</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win7</column>
+            <column name="edition">homePremiumN</column>
+            <column name="type">generic</column>
+            <column name="key">D3PVQ-V7M4J-9Q9K3-GG4K3-F99JM</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win7</column>
+            <column name="edition">professional</column>
+            <column name="type">generic</column>
+            <column name="key">HYF8J-CVRMY-CM74G-RPHKF-PW487</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win7</column>
+            <column name="edition">professional</column>
+            <column name="type">genericKMS</column>
+            <column name="key">FJ82H-XT6CR-J8D7P-XQJJ2-GPDD4</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win7</column>
+            <column name="edition">professionalE</column>
+            <column name="type">generic</column>
+            <column name="key">3YHKG-DVQ27-RYRBX-JMPVM-WG38T</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win7</column>
+            <column name="edition">professionalE</column>
+            <column name="type">genericKMS</column>
+            <column name="key">W82YF-2Q76Y-63HXB-FGJG9-GF7QX</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win7</column>
+            <column name="edition">professionalN</column>
+            <column name="type">generic</column>
+            <column name="key">BKFRB-RTCT3-9HW44-FX3X8-M48M6</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win7</column>
+            <column name="edition">professionalN</column>
+            <column name="type">genericKMS</column>
+            <column name="key">MRPKT-YTG23-K7D7T-X2JMM-QY7MG</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win7</column>
+            <column name="edition">starter</column>
+            <column name="type">generic</column>
+            <column name="key">7Q28W-FT9PC-CMMYT-WHMY2-89M6G</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win7</column>
+            <column name="edition">starterE</column>
+            <column name="type">generic</column>
+            <column name="key">BRQCV-K7HGQ-CKXP6-2XP7K-F233B</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win7</column>
+            <column name="edition">starterN</column>
+            <column name="type">generic</column>
+            <column name="key">D4C3G-38HGY-HGQCV-QCWR8-97FFR</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win7</column>
+            <column name="edition">ultimate</column>
+            <column name="type">generic</column>
+            <column name="key">D4F6K-QK3RD-TMVMJ-BBMRX-3MBMV</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win7</column>
+            <column name="edition">ultimateE</column>
+            <column name="type">generic</column>
+            <column name="key">TWMF7-M387V-XKW4Y-PVQQD-RK7C8</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win7</column>
+            <column name="edition">ultimateN</column>
+            <column name="type">generic</column>
+            <column name="key">HTJK6-DXX8T-TVCR6-KDG67-97J8Q</column>
+            <column name="verified">0</column>
+            <column name="verifiedOn">NULL</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win8</column>
+            <column name="edition">enterprise</column>
+            <column name="type">genericKMS</column>
+            <column name="key">32JNW-9KQ84-P47T8-D8GGY-CWCK7</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win8</column>
+            <column name="edition">enterpriseN</column>
+            <column name="type">genericKMS</column>
+            <column name="key">JMNMF-RHW7P-DMY6X-RF3DR-X2BQT</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win8</column>
+            <column name="edition">pro</column>
+            <column name="type">genericKMS</column>
+            <column name="key">NG4HW-VH26C-733KW-K6F98-J8CK4</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win8</column>
+            <column name="edition">proN</column>
+            <column name="type">genericKMS</column>
+            <column name="key">XCVCF-2NXM9-723PB-MHCB7-2RYQQ</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win8.1</column>
+            <column name="edition">enterprise</column>
+            <column name="type">genericKMS</column>
+            <column name="key">MHF9N-XY6XB-WVXMC-BTDCT-MKKG7</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win8.1</column>
+            <column name="edition">enterpriseN</column>
+            <column name="type">genericKMS</column>
+            <column name="key">TT4HM-HN7YT-62K67-RGRQJ-JFFXW</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win8.1</column>
+            <column name="edition">pro</column>
+            <column name="type">genericKMS</column>
+            <column name="key">GCRJD-8NW9H-F2CDX-CCM8D-9D6T9</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">win8.1</column>
+            <column name="edition">proN</column>
+            <column name="type">genericKMS</column>
+            <column name="key">HMCNV-VVBFX-7HMBH-CTY9B-B4FXY</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">windowsIoT</column>
+            <column name="edition">enterpriseLTSC2021</column>
+            <column name="type">genericKMS</column>
+            <column name="key">KBN8V-HFGQ4-MGXVD-347P6-PDQGT</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">windowsIoT</column>
+            <column name="edition">enterpriseLTSC2024</column>
+            <column name="type">genericKMS</column>
+            <column name="key">KBN8V-HFGQ4-MGXVD-347P6-PDQGT</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">windowsServer2016</column>
+            <column name="edition">datacenter</column>
+            <column name="type">genericKMS</column>
+            <column name="key">CB7KF-BWN84-R7R2Y-793K2-8XDDG</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">windowsServer2016</column>
+            <column name="edition">datacenter</column>
+            <column name="type">genericKMS</column>
+            <column name="key">WC2BQ-8NRM3-FDDYY-2BFGV-KHKQY</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">windowsServer2019</column>
+            <column name="edition">datacenter</column>
+            <column name="type">genericKMS</column>
+            <column name="key">WMDGN-G9PQG-XVVXX-R3X43-63DFG</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">windowsServer2019</column>
+            <column name="edition">standard</column>
+            <column name="type">genericKMS</column>
+            <column name="key">N69G4-B89J2-4G8F4-WWYCC-J464C</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">windowsServer2022</column>
+            <column name="edition">datacenter</column>
+            <column name="type">genericKMS</column>
+            <column name="key">WX4NM-KYWYW-QJJR4-XV3QB-6VM33</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">windowsServer2022</column>
+            <column name="edition">standard</column>
+            <column name="type">genericKMS</column>
+            <column name="key">VDYBN-27WPP-V4HQT-9VMD4-VMK7H</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">windowsServer2025</column>
+            <column name="edition">datacenter</column>
+            <column name="type">genericKMS</column>
+            <column name="key">D764K-2NDRG-47T6Q-P8T8W-YP6DF</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">windowsServer2025</column>
+            <column name="edition">standard</column>
+            <column name="type">genericKMS</column>
+            <column name="key">TVRH6-WHNXV-R9WG3-9XRFY-MY832</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">winVista</column>
+            <column name="edition">business</column>
+            <column name="type">genericKMS</column>
+            <column name="key">YFKBB-PQJJV-G996G-VWGXY-2V3X8</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">winVista</column>
+            <column name="edition">businessN</column>
+            <column name="type">genericKMS</column>
+            <column name="key">HMBQG-8H2RH-C77VX-27R82-VMQBT</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">winVista</column>
+            <column name="edition">enterprise</column>
+            <column name="type">genericKMS</column>
+            <column name="key">VKK3X-68KWM-X2YGT-QR4M6-4BWMV</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+        <table name="key">
+            <column name="version">winVista</column>
+            <column name="edition">enterpriseN</column>
+            <column name="type">genericKMS</column>
+            <column name="key">VTC42-BM838-43QHV-84HX6-XJXKV</column>
+            <column name="verified">1</column>
+            <column name="verifiedOn">2024-10-01 14:00:00</column>
+            <column name="invalidated">0</column>
+            <column name="invalidatedOn">NULL</column>
+        </table>
+    </database>
+</pma_xml_export>

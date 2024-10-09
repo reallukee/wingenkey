@@ -1,5 +1,5 @@
 <?php
-  require_once __DIR__ . "/_common/db.php";          // Database
+  require_once __DIR__ . "/_controllers/type.php";  // Controller
 
   $title = "Types";                                 // Page Title
   $page = "TYPES";                                  // Page Id
@@ -45,190 +45,20 @@
   if ($editionParam === "defaultEdition") {
     $editionParam = null;
   }
+
+  $type = type($typeParam);
+  $keys = keys($verifiedParam, $invalidatedParam, $versionParam, $editionParam, $typeParam);
+  $verified = verified($typeParam);
+  $invalidated = invalidated($typeParam);
+  $versions = versions($typeParam);
+  $editions = editions($typeParam);
+  $total = total($typeParam);
 ?>
 
-<?php include __DIR__ . "/_layouts/_header.php"; ?>  <!-- Header -->
-<?php include __DIR__ . "/_layouts/_navbar.php"; ?>  <!-- Navbar -->
-
-<?php
-  // Type
-  $sql =
-    "SELECT
-      t.*
-    FROM
-      `type` t
-    WHERE
-      t.name=?";
-
-  $stmt = $db->prepare($sql);
-  $stmt->bind_param("s", $typeParam);
-  $stmt->execute();
-
-  $result = $stmt->get_result();
-  $type = $result->fetch_assoc();
-
-  $stmt->close();
-
-  // Keys
-  $sql =
-    "SELECT
-      k.*,
-      v.friendlyName AS version,
-      e.friendlyName AS edition,
-      t.friendlyName AS type
-    FROM
-      `key` k
-    JOIN
-      version v ON v.name=k.version
-    JOIN
-      edition e ON e.name=k.edition
-    JOIN
-      type t ON t.name=k.type
-    WHERE
-      k.type=?
-    AND
-      (
-        k.verified=?
-      OR
-        ? IS NULL
-      )
-    AND
-      (
-        k.invalidated=?
-      OR
-        ? IS NULL
-      )
-    AND
-      (
-        k.version=?
-      OR
-        ? IS NULL
-      )
-    AND
-      (
-        k.edition=?
-      OR
-        ? IS NULL
-      )";
-
-  $stmt = $db->prepare($sql);
-  $stmt->bind_param("siiiissss", $typeParam, $verifiedParam, $verifiedParam, $invalidatedParam, $invalidatedParam, $versionParam, $versionParam, $editionParam, $editionParam);
-  $stmt->execute();
-
-  $keys = $stmt->get_result();
-
-  $stmt->close();
-
-  // Verified
-  $sql =
-    "SELECT DISTINCT
-      COUNT(k.verified) AS total,
-      SUM(CASE WHEN k.verified=0 THEN 1 ELSE 0 END) AS notVerified,
-      SUM(CASE WHEN k.verified=1 THEN 1 ELSE 0 END) AS verified
-    FROM
-      `key` k
-    WHERE
-      k.type=?";
-
-  $stmt = $db->prepare($sql);
-  $stmt->bind_param("s", $typeParam);
-  $stmt->execute();
-
-  $result = $stmt->get_result();
-  $verified = $result->fetch_assoc();
-
-  $stmt->close();
-
-  // Invalidated
-  $sql =
-    "SELECT DISTINCT
-      COUNT(k.invalidated) AS total,
-      SUM(CASE WHEN k.invalidated=0 THEN 1 ELSE 0 END) AS notInvalidated,
-      SUM(CASE WHEN k.invalidated=1 THEN 1 ELSE 0 END) AS invalidated
-    FROM
-      `key` k
-    WHERE
-      k.type=?";
-
-  $stmt = $db->prepare($sql);
-  $stmt->bind_param("s", $typeParam);
-  $stmt->execute();
-
-  $result = $stmt->get_result();
-  $invalidated = $result->fetch_assoc();
-
-  $stmt->close();
-
-  // Versions
-  $sql =
-    "SELECT DISTINCT
-      v.name,
-      v.friendlyName,
-      COUNT(k.version) AS total
-    FROM
-      `key` k
-    JOIN
-      version v ON v.name=k.version
-    WHERE
-      k.type=?
-    GROUP BY
-      v.name,
-      v.friendlyName
-    ORDER BY
-      total DESC";
-
-  $stmt = $db->prepare($sql);
-  $stmt->bind_param("s", $typeParam);
-  $stmt->execute();
-
-  $versions = $stmt->get_result();
-
-  $stmt->close();
-
-  // Editions
-  $sql =
-    "SELECT DISTINCT
-      e.name,
-      e.friendlyName,
-      COUNT(k.edition) AS total
-    FROM
-      `key` k
-    JOIN
-      edition e ON e.name=k.edition
-    WHERE
-      k.type=?
-    GROUP BY
-      e.name,
-      e.friendlyName
-    ORDER BY
-      total DESC";
-
-  $stmt = $db->prepare($sql);
-  $stmt->bind_param("s", $typeParam);
-  $stmt->execute();
-
-  $editions = $stmt->get_result();
-
-  $stmt->close();
-
-  // Total
-  $sql =
-    "SELECT
-      COUNT(k.key) AS total
-    FROM
-      `key` k
-    WHERE
-      k.type=?";
-
-  $stmt = $db->prepare($sql);
-  $stmt->bind_param("s", $typeParam);
-  $stmt->execute();
-
-  $result = $stmt->get_result();
-  $total = $result->fetch_assoc();
-
-  $stmt->close();
-?>
+<!-- Header -->
+<?php include __DIR__ . "/_layouts/_header.php"; ?>
+<!-- Navbar -->
+<?php include __DIR__ . "/_layouts/_navbar.php"; ?>
 
 <!--
   BEGIN BANNER
@@ -264,7 +94,7 @@
   <div class="row gx-lg-5 gy-5">
 
     <!--
-      BEGIN SIDEBAR
+      BEGIN CONTENT
     -->
     <div class="col-12 col-lg-8">
       <div class="card">
@@ -329,8 +159,16 @@
               </div>
             <?php endwhile; ?>
           <?php else: ?>
-            <div class="list-group-item list-group-item-info py-3">
-              No Keys!
+            <div class="list-group-item list-group-item-warning py-3">
+              <h4 class="fs-4 m-0 p-0">
+                No Keys!
+              </h4>
+
+              <div class="my-3"></div>
+
+              <a href="./types.php" class="link-warning">
+                Go Back
+              </a>
             </div>
           <?php endif; ?>
         </div>
@@ -338,11 +176,11 @@
       </div>
     </div>
     <!--
-      END SIDEBAR
+      END CONTENT
     -->
 
     <!--
-      BEGIN CONTENT
+      BEGIN SIDEBAR
     -->
     <div class="col-12 col-lg-4">
       <form action="./type.php" method="get">
@@ -382,8 +220,9 @@
       </form>
     </div>
     <!--
-      END CONTENT
+      END SIDEBAR
     -->
+
   </div>
 </div>
 
@@ -402,8 +241,7 @@
   }
 </script>
 
-<?php
-  $db->close();
-?>
+<?php $db->close(); ?>
 
-<?php include __DIR__ . "/_layouts/_footer.php"; ?>  <!-- Footer -->
+<!-- Footer -->
+<?php include __DIR__ . "/_layouts/_footer.php"; ?>
