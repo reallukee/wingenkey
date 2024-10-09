@@ -76,7 +76,7 @@
         <div class="list-group list-group-flush">
           <?php foreach (glob("./public/*.csv") as $file): ?>
             <div class="list-group-item py-3">
-              <a href="./public/<?= $file; ?>" class="link-primary" download>
+              <a href="./public/<?= pathinfo($file, PATHINFO_FILENAME); ?>.csv" class="link-primary" download>
                 <?= pathinfo($file, PATHINFO_FILENAME); ?>
               </a>
             </div>
@@ -116,7 +116,7 @@
         <div class="list-group list-group-flush">
           <?php foreach (glob("./public/*.json") as $file): ?>
             <div class="list-group-item py-3">
-              <a href="./public/<?= $file; ?>" class="link-primary" download>
+              <a href="./public/<?= pathinfo($file, PATHINFO_FILENAME); ?>.json" class="link-primary" download>
                 <?= pathinfo($file, PATHINFO_FILENAME); ?>
               </a>
             </div>
@@ -156,7 +156,7 @@
         <div class="list-group list-group-flush">
           <?php foreach (glob("./public/*.xml") as $file): ?>
             <div class="list-group-item py-3">
-              <a href="./public/<?= $file; ?>" class="link-primary" download>
+              <a href="./public/<?= pathinfo($file, PATHINFO_FILENAME); ?>.xml" class="link-primary" download>
                 <?= pathinfo($file, PATHINFO_FILENAME); ?>
               </a>
             </div>
