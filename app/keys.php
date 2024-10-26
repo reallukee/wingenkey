@@ -71,7 +71,7 @@
     BEGIN KEYS
   -->
   <?php if ($keys->num_rows > 0): ?>
-    <div class="row row-cols-1 row-cols-lg-1 gx-lg-5 gy-5">
+    <div class="row row-cols-1 row-cols-lg-3 gx-lg-5 gy-5">
       <?php while ($row = $keys->fetch_assoc()): ?>
         <div class="col">
           <div class="card">
@@ -86,7 +86,9 @@
               <div class="my-3"></div>
 
               <h4 class="fs-4 m-0 p-0">
-                <?= $row["key"]; ?>
+                <code>
+                  <?= $row["key"]; ?>
+                </code>
               </h4>
 
               <div class="my-5"></div>

@@ -49,6 +49,24 @@
   <div class="row gx-lg-5 gy-5">
 
     <!--
+      BEGIN SEARCH
+    -->
+    <form action="./search.php" method="get">
+
+      <div class="input-group input-group-lg">
+        <input type="search" class="form-control form-control-lg" name="search" id="search" placeholder="Search..." />
+
+        <button type="submit" class="btn btn-lg btn-primary">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+
+    </form>
+    <!--
+      END SEARCH
+    -->
+
+    <!--
       BEGIN DATABASE
     -->
     <div class="col col-lg-12">

@@ -137,7 +137,9 @@
         <?php while ($row = $keys->fetch_assoc()): ?>
           <li class="nav-item my-1">
             <a href="./key.php?key=<?= $row["key"]; ?>" class="nav-link p-0">
-              <?= $row["key"]; ?>
+              <code>
+                <?= $row["key"]; ?>
+              </code>
             </a>
           </li>
         <?php endwhile; ?>

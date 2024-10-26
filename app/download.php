@@ -41,7 +41,7 @@
 <div class="container-fluid col-12 col-xs-12 col-sm-10 col-md-8 col-lg-8 col-xl-8 col-xxl-8 my-5">
 
   <div class="alert alert-primary" role="alert">
-    Last Update on 2024-10-01 14:00:00
+    Last Update on 2024-10-08 18:30:00
   </div>
 
   <div class="my-5"></div>
