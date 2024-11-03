@@ -1,7 +1,17 @@
+# Temp
+*temp*/
+*temp*
+#*temp*
+
+# Configuration
 config.php
+!config.php.template
 
-desktop.ini
-*.DS_Store
+# Windows
+[Dd]esktop.ini
 
-TEMP.md
-temp/
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
